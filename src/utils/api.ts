@@ -5,8 +5,11 @@ export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5
 export const defaultFetchOptions: RequestInit = {
     credentials: 'include',
     headers: {
-        'Content-Type': 'application/json'
-    }
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': 'https://portfolio-frontend-bp3c.onrender.com'
+    },
+    mode: 'cors'
 };
 
 export const getApiUrl = (endpoint: string) => {
@@ -27,9 +30,14 @@ export const fetchApi = async (endpoint: string, options: RequestInit = {}) => {
         }
     };
     
-    const response = await fetch(url, fetchOptions);
-    if (!response.ok) {
-        throw new Error(`API call failed: ${response.statusText}`);
+    try {
+        const response = await fetch(url, fetchOptions);
+        if (!response.ok) {
+            throw new Error(`API call failed: ${response.statusText}`);
+        }
+        return response;
+    } catch (error) {
+        console.error('API call error:', error);
+        throw error;
     }
-    return response;
 }; 

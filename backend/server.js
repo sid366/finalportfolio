@@ -9,21 +9,24 @@ dotenv.config();
 const app = express();
 
 // CORS configuration - must be before other middleware
-app.use(cors({
+const corsOptions = {
   origin: 'https://portfolio-frontend-bp3c.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie', 'Accept', 'Origin'],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
-  exposedHeaders: ['Set-Cookie'],
-  preflightContinue: true
-}));
+  maxAge: 86400, // 24 hours
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 
 // Other middleware
 app.use(express.json());
 app.use(cookieParser());
-
-// Handle OPTIONS preflight requests
-app.options('*', cors());
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
