@@ -48,13 +48,14 @@ const LoginPage: React.FC = () => {
       }
       
       console.log('Login successful, redirecting to admin page');
-      // Store auth data in localStorage
+      // Store auth data in localStorage with the actual token
       localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('authToken', data.token || 'authenticated');
+      localStorage.setItem('authToken', data.token || '');
       localStorage.setItem('authUser', JSON.stringify(data.user || { username: loginData.username }));
       
-      // Change URL without forcing reload
+      // Change URL and force reload to ensure a fresh state
       window.location.href = '/#admin';
+      window.location.reload();
     } catch (err: any) {
       setError(err.message);
     } finally {
