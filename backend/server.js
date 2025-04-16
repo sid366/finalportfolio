@@ -27,12 +27,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
-app.use('/api/portfolio', require('./routes/portfolio'));
-
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok' });
-});
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/messages', require('./routes/messageRoutes'));
+app.use('/api/contact', require('./routes/contactRoutes'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
