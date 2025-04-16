@@ -8,21 +8,17 @@ dotenv.config();
 
 const app = express();
 
-// CORS configuration - must be before other middleware
-const corsOptions = {
-  origin: 'https://portfolio-frontend-bp3c.onrender.com',
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie', 'Accept', 'Origin'],
+// Very permissive CORS configuration - must be before other middleware
+app.use(cors({
+  origin: true, // Allow any origin
   credentials: true,
-  maxAge: 86400, // 24 hours
-  preflightContinue: false,
-  optionsSuccessStatus: 204
-};
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie', 'Accept', 'Origin', 'X-Requested-With'],
+  exposedHeaders: ['Set-Cookie']
+}));
 
-app.use(cors(corsOptions));
-
-// Handle preflight requests
-app.options('*', cors(corsOptions));
+// Handle OPTIONS requests explicitly
+app.options('*', cors());
 
 // Other middleware
 app.use(express.json());

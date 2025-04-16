@@ -6,8 +6,7 @@ export const defaultFetchOptions: RequestInit = {
     credentials: 'include',
     headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Origin': 'https://portfolio-frontend-bp3c.onrender.com'
+        'Accept': 'application/json'
     },
     mode: 'cors'
 };
