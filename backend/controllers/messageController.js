@@ -28,11 +28,23 @@ exports.getMessage = async (req, res) => {
 // Create a new message (POST)
 exports.createMessage = async (req, res) => {
   try {
-    const { name, email, subject, message } = req.body;
+    console.log('Received message data:', req.body);
     
-    // Basic validation
-    if (!name || !email || !subject || !message) {
-      return res.status(400).json({ message: 'Please fill all required fields' });
+    const { name, email, message } = req.body;
+    const subject = req.body.subject || 'Contact Form Submission'; // Make subject optional
+    
+    // Check for required fields
+    const missingFields = [];
+    if (!name) missingFields.push('name');
+    if (!email) missingFields.push('email');
+    if (!message) missingFields.push('message');
+    
+    if (missingFields.length > 0) {
+      console.log('Missing required fields:', missingFields);
+      return res.status(400).json({ 
+        message: `Please fill all required fields: ${missingFields.join(', ')}`,
+        receivedData: req.body
+      });
     }
     
     const newMessage = new Message({
@@ -46,6 +58,7 @@ exports.createMessage = async (req, res) => {
     
     res.status(201).json({ message: 'Message sent successfully', data: newMessage });
   } catch (error) {
+    console.error('Error saving message:', error);
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 };

@@ -37,22 +37,59 @@ const ContactPage: React.FC = () => {
     setError(null);
     
     try {
-      await fetchApi('api/messages', {
-        method: 'POST',
-        body: JSON.stringify({ name: formData.name, email: formData.email, message: formData.message })
-      });
-      
-      setSuccess(true);
-      setFormData(initialFormData);
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSuccess(false);
-      }, 5000);
+        // Instead of using the utility, let's make a direct fetch call
+        const API_URL = process.env.REACT_APP_API_URL || 'https://finalportfolio-ox2x.onrender.com';
+        console.log('Using API URL:', API_URL);
+        
+        // Log what we're sending
+        console.log('Sending form data:', {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        });
+        
+        const response = await fetch(`${API_URL}/api/messages`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                subject: formData.subject,
+                message: formData.message
+            })
+        });
+        
+        // Log the response
+        console.log('Response status:', response.status);
+        let responseData = null;
+        try {
+            responseData = await response.json();
+            console.log('Response data:', responseData);
+        } catch (parseError) {
+            console.error('Error parsing response:', parseError);
+        }
+        
+        if (!response.ok) {
+            throw new Error(responseData?.message || `Error ${response.status}: ${response.statusText}`);
+        }
+        
+        // Reset form and show success
+        setFormData(initialFormData);
+        setSuccess(true);
+        
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+            setSuccess(false);
+        }, 5000);
     } catch (err: any) {
-      setError(err.message);
+        console.error('Form submission error:', err);
+        setSuccess(false);
+        setError(err.message || 'Failed to send message. Please try again later.');
     } finally {
-      setSubmitting(false);
+        setSubmitting(false);
     }
   };
 
