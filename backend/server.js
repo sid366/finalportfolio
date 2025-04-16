@@ -10,11 +10,8 @@ const app = express();
 
 // Very permissive CORS configuration - must be before other middleware
 app.use(cors({
-  origin: true, // Allow any origin
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie', 'Accept', 'Origin', 'X-Requested-With'],
-  exposedHeaders: ['Set-Cookie']
+  origin: true, // Allow all origins
+  credentials: true
 }));
 
 // Handle OPTIONS requests explicitly

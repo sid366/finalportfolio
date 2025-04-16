@@ -10,8 +10,14 @@ if (!username || !password) {
   process.exit(1);
 }
 
+// Validate password
+if (password.length < 6) {
+  console.error('Password must be at least 6 characters long');
+  process.exit(1);
+}
+
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/portfolio', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -31,7 +37,10 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/portfolio',
     const user = new User({
       username,
       password,
-      role: 'admin'
+      role: 'admin',
+      email: `${username}@admin.com`, // Default email for admin
+      createdAt: new Date(),
+      updatedAt: new Date()
     });
     
     await user.save();

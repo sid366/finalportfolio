@@ -45,8 +45,9 @@ const LoginPage: React.FC = () => {
         throw new Error(data.message || 'Login failed');
       }
       
-      // Redirect to admin page after successful login
+      // Redirect and reload to trigger new auth check
       window.location.href = '/#admin';
+      window.location.reload();
     } catch (err: any) {
       setError(err.message);
     } finally {
