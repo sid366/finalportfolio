@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { getApiUrl } from '../utils/api';
 
 interface LoginData {
   username: string;
@@ -29,7 +30,7 @@ const LoginPage: React.FC = () => {
     setError(null);
     
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch(getApiUrl('api/auth/login'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

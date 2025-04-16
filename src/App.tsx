@@ -10,6 +10,7 @@ import ProjectDetailPage from './pages/ProjectDetailPage';
 import ContactPage from './pages/ContactPage';
 import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
+import { getApiUrl } from './utils/api';
 
 export type PageType = 'home' | 'portfolio' | 'contact' | 'about' | 'project' | 'admin' | 'login';
 
@@ -23,7 +24,7 @@ function App() {
     // Check if user is authenticated
     const checkAuth = async () => {
       try {
-        const response = await fetch('/api/auth/me', {
+        const response = await fetch(getApiUrl('api/auth/me'), {
           credentials: 'include' // Important for cookies
         });
         

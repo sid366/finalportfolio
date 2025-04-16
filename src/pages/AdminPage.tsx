@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { getApiUrl } from '../utils/api';
 
 interface Message {
   _id: string;
@@ -25,7 +26,7 @@ const AdminPage: React.FC = () => {
   const fetchMessages = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/messages', {
+      const response = await fetch(getApiUrl('api/messages'), {
         credentials: 'include'
       });
       
@@ -44,7 +45,7 @@ const AdminPage: React.FC = () => {
 
   const markAsRead = async (id: string) => {
     try {
-      const response = await fetch(`/api/messages/${id}`, {
+      const response = await fetch(getApiUrl(`api/messages/${id}`), {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -74,7 +75,7 @@ const AdminPage: React.FC = () => {
 
   const deleteMessage = async (id: string) => {
     try {
-      const response = await fetch(`/api/messages/${id}`, {
+      const response = await fetch(getApiUrl(`api/messages/${id}`), {
         method: 'DELETE',
         credentials: 'include'
       });
@@ -94,9 +95,39 @@ const AdminPage: React.FC = () => {
     }
   };
 
+  const toggleRead = async (id: string, isRead: boolean) => {
+    try {
+      const response = await fetch(getApiUrl(`api/messages/${id}`), {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({ read: isRead })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to update message');
+      }
+      
+      // Update local state
+      setMessages(prev => 
+        prev.map(msg => 
+          msg._id === id ? { ...msg, read: isRead } : msg
+        )
+      );
+      
+      if (selectedMessage && selectedMessage._id === id) {
+        setSelectedMessage({ ...selectedMessage, read: isRead });
+      }
+    } catch (err: any) {
+      setError(err.message);
+    }
+  };
+
   const handleLogout = async () => {
     try {
-      const response = await fetch('/api/auth/logout', {
+      const response = await fetch(getApiUrl('api/auth/logout'), {
         method: 'POST',
         credentials: 'include'
       });

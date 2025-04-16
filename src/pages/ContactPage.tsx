@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { getApiUrl } from '../utils/api';
 
 interface FormData {
   name: string;
@@ -36,7 +37,7 @@ const ContactPage: React.FC = () => {
     setError(null);
     
     try {
-      const response = await fetch('/api/messages', {
+      const response = await fetch(getApiUrl('api/messages'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
