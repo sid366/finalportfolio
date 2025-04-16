@@ -19,24 +19,45 @@ const AdminPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
 
+  // Check authentication on mount
   useEffect(() => {
+    console.log('AdminPage mounted - checking auth');
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    if (!isLoggedIn) {
+      console.log('Not authenticated, redirecting to login');
+      window.location.href = '/#login';
+      return;
+    }
+    console.log('Auth confirmed from localStorage, proceeding to fetch messages');
     fetchMessages();
   }, []);
 
   const fetchMessages = async () => {
     try {
+      console.log('Fetching messages...');
       setLoading(true);
+      
+      // Get auth token from localStorage
+      const authToken = localStorage.getItem('authToken');
+      
       const response = await fetch(getApiUrl('api/messages'), {
-        credentials: 'include'
+        credentials: 'include',
+        headers: {
+          'Authorization': authToken ? `Bearer ${authToken}` : ''
+        }
       });
+      
+      console.log('Messages API response:', { status: response.status, ok: response.ok });
       
       if (!response.ok) {
         throw new Error('Failed to fetch messages');
       }
       
       const data = await response.json();
+      console.log('Messages received:', data.length);
       setMessages(data);
     } catch (err: any) {
+      console.error('Error fetching messages:', err);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -45,10 +66,13 @@ const AdminPage: React.FC = () => {
 
   const markAsRead = async (id: string) => {
     try {
+      const authToken = localStorage.getItem('authToken');
+      
       const response = await fetch(getApiUrl(`api/messages/${id}`), {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': authToken ? `Bearer ${authToken}` : ''
         },
         credentials: 'include',
         body: JSON.stringify({ read: true })
@@ -75,9 +99,14 @@ const AdminPage: React.FC = () => {
 
   const deleteMessage = async (id: string) => {
     try {
+      const authToken = localStorage.getItem('authToken');
+      
       const response = await fetch(getApiUrl(`api/messages/${id}`), {
         method: 'DELETE',
-        credentials: 'include'
+        credentials: 'include',
+        headers: {
+          'Authorization': authToken ? `Bearer ${authToken}` : ''
+        }
       });
       
       if (!response.ok) {
@@ -97,10 +126,13 @@ const AdminPage: React.FC = () => {
 
   const toggleRead = async (id: string, isRead: boolean) => {
     try {
+      const authToken = localStorage.getItem('authToken');
+      
       const response = await fetch(getApiUrl(`api/messages/${id}`), {
         method: 'PATCH',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': authToken ? `Bearer ${authToken}` : ''
         },
         credentials: 'include',
         body: JSON.stringify({ read: isRead })
@@ -127,16 +159,29 @@ const AdminPage: React.FC = () => {
 
   const handleLogout = async () => {
     try {
+      const authToken = localStorage.getItem('authToken');
+      
       const response = await fetch(getApiUrl('api/auth/logout'), {
         method: 'POST',
-        credentials: 'include'
+        credentials: 'include',
+        headers: {
+          'Authorization': authToken ? `Bearer ${authToken}` : ''
+        }
       });
       
-      if (response.ok) {
-        window.location.href = '/#home';
-      }
+      // Always clear local storage on logout attempt
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('authUser');
+      
+      window.location.href = '/#home';
     } catch (error) {
       console.error('Logout failed', error);
+      // Still clear storage on error
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('authUser');
+      window.location.href = '/#home';
     }
   };
 

@@ -24,19 +24,54 @@ function App() {
     // Check if user is authenticated
     const checkAuth = async () => {
       try {
+        console.log('Checking authentication status...');
+        
+        // First check localStorage (more reliable with separate frontend/backend)
+        const isLoggedInFromStorage = localStorage.getItem('isLoggedIn') === 'true';
+        console.log('Local storage login status:', { isLoggedInFromStorage });
+        
+        if (isLoggedInFromStorage) {
+          console.log('Auth confirmed from localStorage');
+          setIsAuthenticated(true);
+          setCheckingAuth(false);
+          return;
+        }
+        
+        // Only try the API check if localStorage failed
+        console.log('No auth in localStorage, checking API');
         const response = await fetch(getApiUrl('api/auth/me'), {
-          credentials: 'include' // Important for cookies
+          credentials: 'include', // Important for cookies
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('authToken') || ''}`
+          }
         });
         
+        console.log('Auth check response:', { status: response.status, ok: response.ok });
         setIsAuthenticated(response.ok);
       } catch (error) {
+        console.error('Auth check error:', error);
         setIsAuthenticated(false);
       } finally {
         setCheckingAuth(false);
       }
     };
     
+    // Run auth check immediately
     checkAuth();
+    
+    // Re-check auth when hash changes to admin
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'admin') {
+        console.log('Hash changed to admin, re-checking auth');
+        checkAuth();
+      }
+    };
+    
+    window.addEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -73,15 +108,24 @@ function App() {
   const renderPage = () => {
     // If still checking authentication status, return loading
     if (checkingAuth && currentPage === 'admin') {
+      console.log('Still checking auth, showing loading...');
       return <div>Loading...</div>;
     }
     
     // For admin page, check authentication
     if (currentPage === 'admin') {
-      return isAuthenticated ? <AdminPage /> : <LoginPage />;
+      console.log('Should render admin page?', { isAuthenticated, currentPage });
+      if (isAuthenticated) {
+        console.log('Rendering AdminPage component');
+        return <AdminPage />;
+      } else {
+        console.log('Not authenticated, rendering LoginPage instead');
+        return <LoginPage />;
+      }
     }
     
     // For other pages, render normally
+    console.log('Rendering regular page:', currentPage);
     switch (currentPage) {
       case 'about':
         return <AboutPage />;

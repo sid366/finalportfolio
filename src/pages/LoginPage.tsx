@@ -30,6 +30,7 @@ const LoginPage: React.FC = () => {
     setError(null);
     
     try {
+      console.log('Attempting login with:', { username: loginData.username });
       const response = await fetch(getApiUrl('api/auth/login'), {
         method: 'POST',
         headers: {
@@ -40,14 +41,20 @@ const LoginPage: React.FC = () => {
       });
       
       const data = await response.json();
+      console.log('Login response:', { status: response.status, ok: response.ok, data });
       
       if (!response.ok) {
         throw new Error(data.message || 'Login failed');
       }
       
-      // Redirect and reload to trigger new auth check
+      console.log('Login successful, redirecting to admin page');
+      // Store auth data in localStorage
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('authToken', data.token || 'authenticated');
+      localStorage.setItem('authUser', JSON.stringify(data.user || { username: loginData.username }));
+      
+      // Change URL without forcing reload
       window.location.href = '/#admin';
-      window.location.reload();
     } catch (err: any) {
       setError(err.message);
     } finally {
