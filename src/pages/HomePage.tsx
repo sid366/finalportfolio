@@ -31,20 +31,12 @@ const HomeContainer = styled.div`
   }
 `;
 
-const Emoji = styled(motion.span)`
-  font-size: 2rem;
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  z-index: 2;
-
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    position: fixed;
-    top: 26px;
-    left: 20px;
-    font-size: 1.2rem;
-    z-index: 1000;
-  }
+const Emoji = styled(motion.div)`
+  position: fixed;
+  top: 26px;
+  left: 20px;
+  font-size: 1.2rem;
+  z-index: 1000;
 `;
 
 const NameText = styled(motion.h1)`
@@ -61,6 +53,8 @@ const NameText = styled(motion.h1)`
     text-align: left;
     margin-left: -11px;
     margin-top: 640px;
+    opacity: 1;
+    transform: none;
   }
 `;
 
