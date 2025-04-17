@@ -213,7 +213,7 @@ const ContactContainer = styled.div`
   min-height: 100vh;
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    padding: 80px 20px;
+    padding: 120px 20px 80px;
   }
 `;
 
