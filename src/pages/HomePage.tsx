@@ -27,7 +27,7 @@ const HomeContainer = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     padding: 30px;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
   }
 `;
 
@@ -39,9 +39,11 @@ const Emoji = styled(motion.span)`
   z-index: 2;
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    top: 30px;
+    position: fixed;
+    top: 26px;
     left: 20px;
-    margin-top: 10px;
+    font-size: 1.2rem;
+    z-index: 1000;
   }
 `;
 
@@ -57,8 +59,8 @@ const NameText = styled(motion.h1)`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: 6rem;
     text-align: left;
-    margin-left: 15px;
-    margin-top: -30px;
+    margin-left: -11px;
+    margin-top: 640px;
   }
 `;
 
