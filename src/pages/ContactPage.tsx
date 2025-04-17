@@ -243,6 +243,11 @@ const ContentWrapper = styled.div`
     flex-direction: column;
     gap: 40px;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    max-width: 400px;
+    padding: 0 70px;
+  }
 `;
 
 const ContactInfo = styled.div`
