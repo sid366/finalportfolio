@@ -57,8 +57,8 @@ const NameText = styled(motion.h1)`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: 6rem;
     text-align: left;
-    margin-left: 20px;
-    margin-top: -50px;
+    margin-left: 15px;
+    margin-top: -30px;
   }
 `;
 
