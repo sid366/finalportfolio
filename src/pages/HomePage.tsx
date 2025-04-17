@@ -24,19 +24,11 @@ const HomeContainer = styled.div`
   align-items: flex-end;
   padding: 50px;
   
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: 768px) {
     padding: 30px;
     justify-content: flex-start;
     align-items: flex-end;
   }
-`;
-
-const Emoji = styled(motion.div)`
-  position: fixed;
-  top: 26px;
-  left: 20px;
-  font-size: 1.2rem;
-  z-index: 1000;
 `;
 
 const NameText = styled(motion.h1)`
@@ -44,17 +36,17 @@ const NameText = styled(motion.h1)`
   font-weight: bold;
   line-height: 0.8;
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: 992px) {
     font-size: 10rem;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    font-size: 6rem;
-    text-align: left;
-    margin-left: -11px;
-    margin-top: 640px;
-    opacity: 1;
-    transform: none;
+  @media (max-width: 768px) {
+    font-size: 6rem !important;
+    text-align: left !important;
+    margin-left: -11px !important;
+    margin-top: 640px !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 `;
 
