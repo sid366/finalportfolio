@@ -45,7 +45,7 @@ const NameText = styled(motion.h1)`
     text-align: left !important;
     margin-left: -11px !important;
     margin-top: 640px !important;
-    margin-bottom: 90px !important;
+    margin-bottom: 20px !important;
     opacity: 1 !important;
     transform: none !important;
   }
