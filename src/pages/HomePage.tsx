@@ -25,7 +25,7 @@ const HomeContainer = styled.div`
   padding: 50px;
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    padding: 30px;
+    padding: 120px 30px 30px;
     justify-content: flex-start;
     align-items: flex-end;
   }
