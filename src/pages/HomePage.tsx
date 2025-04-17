@@ -25,9 +25,23 @@ const HomeContainer = styled.div`
   padding: 50px;
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    padding: 120px 30px 30px;
+    padding: 120px 30px 20px;
     justify-content: flex-start;
     align-items: flex-end;
+  }
+`;
+
+const Emoji = styled(motion.span)`
+  font-size: 2rem;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 2;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    top: 30px;
+    left: 20px;
+    margin-top: 10px;
   }
 `;
 
