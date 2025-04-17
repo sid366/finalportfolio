@@ -27,7 +27,7 @@ const HomeContainer = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     padding: 30px;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
   }
 `;
 
@@ -43,8 +43,8 @@ const NameText = styled(motion.h1)`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: 6rem;
     text-align: left;
-    margin-left: 20px;
-    margin-top: -100px;
+    margin-left: 10px;
+    margin-top: -10px;
   }
 `;
 
