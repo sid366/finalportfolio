@@ -118,7 +118,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
 // Styled Components
 const EmojiFace = styled.div`
   position: fixed;
-  top: 20px;
+  top: 26px;
   left: 20px;
   font-size: 1.2rem;
   z-index: 1000;
