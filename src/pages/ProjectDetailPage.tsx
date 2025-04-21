@@ -7,9 +7,44 @@ interface ProjectDetailProps {
 }
 
 const projects = {
+  "gravitone": {
+    title: "Gravitone",
+    description: "A motion-controlled musical instrument that turns movement into music and colors.",
+    fullDescription: `
+      Gravitone is an interactive web-based musical instrument. Using your device's motion sensors, you control a white circle that moves through different musical zones, each triggering notes and color changes.
+
+
+How to Play:
+1. Open Gravitone in a mobile browser
+2. Tap "START" to begin
+3. Tilt your device to move the white circle
+4. Explore different zones to trigger various musical scales
+5. Watch as colors shift and blend based on your movement
+
+The project was built using the ZIM Canvas Framework, which provides robust handling of device motion events and smooth graphics rendering.
+
+I also created a desktop companion that plays chords when a circle is moved through different musical zones. You can easily play music with a friend using both the mobile and desktop versions.
+
+Key Features:
+-Motion-controlled interface using device tilt
+-Six distinct musical zones
+-Dynamic color transitions
+-Responsive design optimized for mobile devices
+-Intuitive, no-prior-music-knowledge-needed
+    `,
+    technologies: ["ZIM Canvas Framework", "Device Motion API", "JavaScript", "HTML5 Canvas"],
+    image: "/assets/projects/gravitone/26-min.png",
+    gallery: [
+      "/assets/projects/gravitone/27-min.png",
+      "/assets/projects/gravitone/28-min.png",
+      "/assets/projects/gravitone/29-min.png"
+    ],
+    link: "https://gravitone.onrender.com/",
+    github: "#"
+  },
   "ecommerce": {
     title: "Atoms For Peace",
-    description: "A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, and a shopping cart system.",
+    description: "An interactive media installation.",
     fullDescription: `
       This immersive installation transforms the song Atoms for Peace by Thom Yorke into a multisensory visual experience using projection mapping, Adobe After Effects, and audio-reactive animation. By extracting and analyzing the song's MIDI data, the piece syncs dynamic visuals to bass, drums, piano, and vocals.
 
@@ -37,7 +72,7 @@ Key Features:
       "/assets/projects/atoms/21.png",
       "/assets/projects/atoms/22.png"
     ],
-    link: "https://youtu.be/xgEKhjzgd2o",
+    link: "https://youtu.be/hr1HHVATzQo",
     github: "#"
   },
   "social": {
@@ -68,6 +103,7 @@ Key Features:
     image: "/assets/projects/emoji-tarot/1.png",
     gallery: [
       "/assets/projects/emoji-tarot/2.png",
+      "/assets/projects/emoji-tarot/3.png",
       "/assets/projects/emoji-tarot/screenshot1.png",
       "/assets/projects/emoji-tarot/screenshot2.png",
       "/assets/projects/emoji-tarot/screenshot3.png"
@@ -222,8 +258,13 @@ const ProjectDetailPage: React.FC<ProjectDetailProps> = ({ projectId = "ecommerc
           transition={{ delay: 0.6, duration: 0.5 }}
         >
           <ProjectLink href={project.link} target="_blank" rel="noopener noreferrer">
-            Check it out
+            {projectId === "gravitone" ? "Mobile Version" : "Check it out"}
           </ProjectLink>
+          {projectId === "gravitone" && (
+            <ProjectLink href="https://gravitone-desktop-91e6.onrender.com" target="_blank" rel="noopener noreferrer">
+              Desktop Version
+            </ProjectLink>
+          )}
           {projectId === "taskmanager" && (
             <ProjectLink href="https://youtube.com/shorts/AwjUkXFAukI?feature=share" target="_blank" rel="noopener noreferrer">
               Ribbon Sensor Demo
@@ -413,4 +454,4 @@ const ProjectLink = styled.a`
   }
 `;
 
-export default ProjectDetailPage; 
+export default ProjectDetailPage;
