@@ -62,7 +62,7 @@ const AboutContainer = styled.div`
 const PageTitle = styled(motion.h1)`
   font-size: 8rem;
   font-weight: bold;
-  margin-bottom: 40px;
+  margin-bottom: 2px;
   text-align: center;
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
@@ -71,13 +71,13 @@ const PageTitle = styled(motion.h1)`
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: 4rem;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
   }
 `;
 
 const ProfileImage = styled(motion.img)`
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   margin: 0 auto 20px;
     margin-bottom: .5px;
   object-fit: contain;
