@@ -7,6 +7,39 @@ interface ProjectDetailProps {
 }
 
 const projects = {
+  "interactive-logo": {
+    title: "Interactive Logo",
+    description: "An interactive logo design for a fictional surfboarding company.",
+    fullDescription: `
+      I created an engaging interactive logo experience to demonstrate how companies can make their web presence more memorable. The project combines clean logo design with playful web animations to create a delightful user experience.
+
+The process started with designing a surfing-themed logo in Canva for a fictional company called "Sunny Side Surf". The design features a cute cat character riding a surfboard within a circular badge. After finalizing the design, I brought it to life using ZimJS, a powerful Canvas animation framework.
+
+The logo features several interactive elements:
+- The circular badge containing the company name continuously rotates
+- Hovering over the surfing cat triggers a playful side-to-side wiggle animation
+- Clicking the cat produces a meowing sound effect and special animation
+- Clicking the rotating circle makes the cat perform a 360° flip trick with water splash effects
+- The background smoothly transitions between colors during interactions
+
+This project showcases how simple interactivity can transform a static logo into an engaging brand element. It's an accessible way for companies to add playful touches to their web presence.
+
+Key Features:
+- Clean, professional logo design in Canva
+- Smooth animations using ZimJS Canvas Framework
+- Multiple interactive elements and animations
+- Sound effects integration
+- Dynamic color transitions
+- Responsive design that works across devices
+    `,
+    technologies: ["Canva", "ZimJS", "JavaScript", "HTML5 Canvas"],
+    image: "/assets/projects/interactivelogo/interactivelogo.png",
+    gallery: [
+      "/assets/projects/interactivelogo.png"
+    ],
+    link: "https://sunny-side-surf.onrender.com",
+    github: "#"
+  },
   "gravitone": {
     title: "Gravitone",
     description: "A motion-controlled musical instrument that turns movement into music and colors.",

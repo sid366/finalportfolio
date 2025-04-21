@@ -17,6 +17,13 @@ interface Article {
 
 const projects: Project[] = [
   {
+    id: "interactive-logo",
+    title: "Interactive Logo",
+    description: "An interactive logo design for a fictional surfboarding company, combining Canva design with ZimJS animations. Features playful interactions like animated surfing tricks, sound effects, and dynamic color transitions.",
+    image: "/assets/projects/interactivelogo/interactivelogo.png",
+    link: "#project/interactive-logo"
+  },
+  {
     id: "gravitone",
     title: "Gravitone",
     description: "A mobile app that uses motion controls to turn movement into musical notes and colors. The desktop companion plays chords when a circle is moved through different musical zones. Created using the ZIM Canvas Framework.",
