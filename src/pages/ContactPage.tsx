@@ -50,18 +50,18 @@ const ContactPage: React.FC = () => {
         });
         
         const response = await fetch(`${API_URL}/api/messages`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
             body: JSON.stringify({
                 name: formData.name,
                 email: formData.email,
                 subject: formData.subject,
                 message: formData.message
             })
-        });
-        
+      });
+      
         // Log the response
         console.log('Response status:', response.status);
         let responseData = null;
@@ -71,25 +71,25 @@ const ContactPage: React.FC = () => {
         } catch (parseError) {
             console.error('Error parsing response:', parseError);
         }
-        
-        if (!response.ok) {
+      
+      if (!response.ok) {
             throw new Error(responseData?.message || `Error ${response.status}: ${response.statusText}`);
-        }
-        
+      }
+      
         // Reset form and show success
         setFormData(initialFormData);
-        setSuccess(true);
-        
+      setSuccess(true);
+      
         // Clear success message after 5 seconds
-        setTimeout(() => {
-            setSuccess(false);
-        }, 5000);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
     } catch (err: any) {
         console.error('Form submission error:', err);
         setSuccess(false);
         setError(err.message || 'Failed to send message. Please try again later.');
     } finally {
-        setSubmitting(false);
+      setSubmitting(false);
     }
   };
 

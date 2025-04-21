@@ -12,13 +12,22 @@ const AboutPage: React.FC = () => {
       >
         ABOUT ME
       </PageTitle>
+
+      <ProfileImage
+        src="/assets/sid.png?v=2"
+        alt="Sid's illustration"
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 1, scale: 0.8 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+      />
+
       <ContentContainer>
         <TextBlock
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          Hello! I'm Sid, a passionate professional with a keen interest in design, technology, and storytelling.
+          Hello! I'm Sid, a passionate professional with an interest in design, technology, and storytelling.
         </TextBlock>
         <TextBlock
           initial={{ opacity: 0 }}
@@ -53,7 +62,7 @@ const AboutContainer = styled.div`
 const PageTitle = styled(motion.h1)`
   font-size: 8rem;
   font-weight: bold;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   text-align: center;
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
@@ -62,7 +71,23 @@ const PageTitle = styled(motion.h1)`
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: 4rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+  }
+`;
+
+const ProfileImage = styled(motion.img)`
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+    margin-bottom: .5px;
+  object-fit: contain;
+  transform: scale(2.5);
+  filter: brightness(0.9) contrast(1.1);
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    width: 180px;
+    height: 180px;
+    margin-bottom: .5px;
   }
 `;
 
@@ -71,7 +96,7 @@ const ContentContainer = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 `;
 
 const TextBlock = styled(motion.p)`

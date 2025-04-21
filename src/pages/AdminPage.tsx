@@ -174,7 +174,7 @@ const AdminPage: React.FC = () => {
       localStorage.removeItem('authToken');
       localStorage.removeItem('authUser');
       
-      window.location.href = '/#home';
+        window.location.href = '/#home';
     } catch (error) {
       console.error('Logout failed', error);
       // Still clear storage on error

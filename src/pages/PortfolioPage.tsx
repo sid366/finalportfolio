@@ -154,6 +154,133 @@ const PortfolioPage: React.FC = () => {
           </HinduImageLink>
         </HinduSection>
       </WritingSection>
+
+      <DesignSection
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+      >
+        <SectionTitle>Design</SectionTitle>
+        <CanvaEmbed>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '70.7071%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.canva.com/design/DAGhS_fJaY0/E7x0J_lnMZpJ3CArBmBZ1g/view?embed"
+              allowFullScreen
+              allow="fullscreen"
+            />
+          </div>
+          <CanvaLink
+            href="https://www.canva.com/design/DAGhS_fJaY0/E7x0J_lnMZpJ3CArBmBZ1g/view?utm_content=DAGhS_fJaY0&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener"
+          >
+            Initial style tile for my portfolio website
+          </CanvaLink>
+        </CanvaEmbed>
+
+        <CanvaEmbed>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '56.2500%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.canva.com/design/DAGh1U15AaQ/_vWuD7bsYnZNzH0EgVNIzw/view?embed"
+              allowFullScreen
+              allow="fullscreen"
+            />
+          </div>
+          <CanvaLink
+            href="https://www.canva.com/design/DAGh1U15AaQ/_vWuD7bsYnZNzH0EgVNIzw/view?utm_content=DAGh1U15AaQ&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener"
+          >
+            Timeblind user research and design
+          </CanvaLink>
+        </CanvaEmbed>
+
+        <CanvaEmbed>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '56.2500%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.canva.com/design/DAGXJNTHwnQ/omDZCByT-UUPPbdgBfmJGQ/view?embed"
+              allowFullScreen
+              allow="fullscreen"
+            />
+          </div>
+          <CanvaLink
+            href="https://www.canva.com/design/DAGXJNTHwnQ/omDZCByT-UUPPbdgBfmJGQ/view?utm_content=DAGXJNTHwnQ&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener"
+          >
+            UI redesign for Apple Music and Spotify
+          </CanvaLink>
+        </CanvaEmbed>
+      </DesignSection>
     </PortfolioContainer>
   );
 };
@@ -393,6 +520,38 @@ const HinduImage = styled.img`
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const DesignSection = styled(motion.div)`
+  margin-top: 100px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 50px;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: 0 70px;
+    margin-top: 60px;
+  }
+`;
+
+const CanvaEmbed = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+`;
+
+const CanvaLink = styled.a`
+  display: block;
+  text-align: center;
+  color: ${props => props.theme.colors.primary};
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 1em;
+  
+  &:hover {
+    color: ${props => props.theme.colors.secondary};
+    text-decoration: underline;
+  }
 `;
 
 export default PortfolioPage;
