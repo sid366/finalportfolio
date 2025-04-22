@@ -35,9 +35,9 @@ Key Features:
     technologies: ["Canva", "ZimJS", "JavaScript", "HTML5 Canvas"],
     image: "/assets/projects/interactivelogo/interactivelogo.png",
     gallery: [
-      "/assets/projects/interactivelogo.png"
+      "/assets/projects/interactivelogo/ic.png"
     ],
-    link: "https://sunny-side-surf.onrender.com",
+    link: "https://interactivecatlogo.onrender.com/",
     github: "#"
   },
   "gravitone": {
