@@ -169,6 +169,8 @@ const PortfolioPage: React.FC = () => {
       >
         <SectionTitle>Design</SectionTitle>
         <CanvaEmbed>
+          <Subheading>Portfolio Website</Subheading>
+          <SubheadingText>I initially opted to use a minimal Brutalist aesthetic for this site, but the elements changed over time.</SubheadingText>
           <div style={{
             position: 'relative',
             width: '100%',
@@ -204,11 +206,14 @@ const PortfolioPage: React.FC = () => {
             target="_blank"
             rel="noopener"
           >
-            Initial style tile for my portfolio website
+           
           </CanvaLink>
+          <Divider />
         </CanvaEmbed>
 
         <CanvaEmbed>
+          <Subheading>Timeblind</Subheading>
+          <SubheadingText>Timeblind started out as an idea for a smartwatch app. Here's the user research and design process:</SubheadingText>
           <div style={{
             position: 'relative',
             width: '100%',
@@ -244,11 +249,27 @@ const PortfolioPage: React.FC = () => {
             target="_blank"
             rel="noopener"
           >
-            Timeblind user research and design
+            
           </CanvaLink>
+          <Divider />
         </CanvaEmbed>
 
         <CanvaEmbed>
+          <Subheading>Spotify vs. Apple Music: Usability Study</Subheading>
+          <SubheadingText>
+            In this project, we conducted a comparative usability test between Spotify and Apple Music's desktop apps. Our goal was to evaluate how easily users could complete everyday tasks like finding music, sharing songs, and discovering new content. We identified pain points and proposed interface improvements to enhance the overall user experience.
+          </SubheadingText>
+          <SubheadingText>
+            View the full user research and testing report{' '}
+            <TextLink 
+              href="https://docs.google.com/document/d/1gRMWZtRv9XtF5xh1O_4auiV_mhH7Ux12WDHdsxgSlOA/edit?tab=t.0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here
+            </TextLink>
+            .
+          </SubheadingText>
           <div style={{
             position: 'relative',
             width: '100%',
@@ -284,8 +305,332 @@ const PortfolioPage: React.FC = () => {
             target="_blank"
             rel="noopener"
           >
-            UI redesign for Apple Music and Spotify
+           
           </CanvaLink>
+          <Divider />
+        </CanvaEmbed>
+
+        <CanvaEmbed>
+          <Subheading>Microwave Interface Redesign</Subheading>
+          <SubheadingText>
+            In this project, I redesigned a home microwave interface to make it more intuitive, streamlined, and enjoyable to use. My goal was to remove clutter, reduce the number of steps needed for common tasks, and make setting the time feel both precise and fun. I used a 4D encoder-style knob for navigation and time setting, backed up by clear visual feedback and simple, essential controls.
+          </SubheadingText>
+          <SubheadingText>
+            You can explore the full user research and testing process in{' '}
+            <TextLink 
+              href="https://docs.google.com/document/d/1T7BWeBeKxhNcMjoCWeUu4bmx5_RZHLCLFWvApSfM8K8/edit?tab=t.0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              this document
+            </TextLink>
+            .
+          </SubheadingText>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '34.8614%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.canva.com/design/DAGc8rHx7MQ/7h4zo8xUF5njw3jeLq7P3Q/view?embed"
+              allowFullScreen
+              allow="fullscreen"
+            />
+          </div>
+          <CanvaLink
+            href="https://www.canva.com/design/DAGc8rHx7MQ/7h4zo8xUF5njw3jeLq7P3Q/view?utm_content=DAGc8rHx7MQ&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener"
+          >
+            
+          </CanvaLink>
+          <Divider />
+        </CanvaEmbed>
+
+        <CanvaEmbed>
+        <Subheading>SomSom</Subheading>
+        <SubheadingText>
+        SomSom is a sleep-tracking app that aims to help users understand their sleep patterns. Here's the user research and design process:
+          </SubheadingText>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '56.2500%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.canva.com/design/DAGfm9_V1h4/6i5nox-yLyVzrN_bBki08A/view?embed"
+              allowFullScreen
+              allow="fullscreen"
+            />
+          </div>
+          <CanvaLink
+            href="https://www.canva.com/design/DAGfm9_V1h4/6i5nox-yLyVzrN_bBki08A/view?utm_content=DAGfm9_V1h4&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener"
+          >
+           
+          </CanvaLink>
+          <Divider />
+        </CanvaEmbed>
+
+        <CanvaEmbed>
+          <Subheading>Hinge Brand Analysis & User Insight</Subheading>
+          <SubheadingText>
+            Through brand analysis and an empathy map, I explored how Hinge aligns with user needs for meaningful, in-person connections.
+          </SubheadingText>
+          <SubheadingText>
+            Read the brand analysis{' '}
+            <TextLink 
+              href="https://docs.google.com/document/d/1su9HLif96M9wtU-gbY3b9GZn3x2WuJHygNH_hjPbgxg/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here
+            </TextLink>
+            {' '}and user research{' '}
+            <TextLink 
+              href="https://docs.google.com/document/d/1MWlUIN7Qj1dnTXaC6a7Wpic4-4_RmIFHpOgwcsKg1Wk/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here
+            </TextLink>
+            .
+          </SubheadingText>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '77.2407%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.canva.com/design/DAGlrOeBMfU/1SZU7H1DjpxwBI1Ew5j6Aw/view?embed"
+              allowFullScreen
+              allow="fullscreen"
+            />
+          </div>
+          <CanvaLink
+            href="https://www.canva.com/design/DAGlrOeBMfU/1SZU7H1DjpxwBI1Ew5j6Aw/view?utm_content=DAGlrOeBMfU&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener"
+          >
+          
+          </CanvaLink>
+          <Divider />
+        </CanvaEmbed>
+
+        <CanvaEmbed>
+          <Subheading>More stuff</Subheading>
+          <SubheadingText>
+            A collection of my work across various digital design tools (Adobe Photoshop, Illustrator, and Canva).
+          </SubheadingText>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '177.7778%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.canva.com/design/DAGWkRHqakg/2dCs4AwLkbGRR1hYR0PEYQ/watch?embed"
+              allowFullScreen
+              allow="fullscreen"
+            />
+          </div>
+          <CanvaLink
+            href="https://www.canva.com/design/DAGWkRHqakg/2dCs4AwLkbGRR1hYR0PEYQ/watch?utm_content=DAGWkRHqakg&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener"
+          >
+           
+          </CanvaLink>
+          <Divider />
+        </CanvaEmbed>
+
+        <CanvaEmbed>
+          <Subheading>Wireframes & User Flows</Subheading>
+          <SubheadingText>
+            Wireframes and user flow diagram for a scheduling app.
+          </SubheadingText>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '70.7838%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.canva.com/design/DAGlrvxs0h0/glHKmYKWbHFrTeuFoSXcyA/view?embed"
+              allowFullScreen
+              allow="fullscreen"
+            />
+          </div>
+          <CanvaLink
+            href="https://www.canva.com/design/DAGlrvxs0h0/glHKmYKWbHFrTeuFoSXcyA/view?utm_content=DAGlrvxs0h0&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+            target="_blank"
+            rel="noopener"
+          >
+           
+          </CanvaLink>
+          <Divider />
+        </CanvaEmbed>
+
+        <CanvaEmbed>
+          <Subheading>After Effects Projects</Subheading>
+          <SubheadingText>
+           My motion design work in Adobe After Effects.
+          </SubheadingText>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '56.25%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.youtube.com/embed/aKtldGi8xUk"
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            />
+          </div>
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: 0,
+            paddingTop: '56.25%',
+            paddingBottom: 0,
+            boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+            marginTop: '1.6em',
+            marginBottom: '0.9em',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            willChange: 'transform'
+          }}>
+            <iframe
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                border: 'none',
+                padding: 0,
+                margin: 0
+              }}
+              src="https://www.youtube.com/embed/Jr2EV44-kqI"
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            />
+          </div>
+          <Divider />
         </CanvaEmbed>
       </DesignSection>
     </PortfolioContainer>
@@ -559,6 +904,38 @@ const CanvaLink = styled.a`
     color: ${props => props.theme.colors.secondary};
     text-decoration: underline;
   }
+`;
+
+const Subheading = styled.h3`
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1em;
+  color: ${props => props.theme.colors.primary};
+  text-align: center;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: 1rem;
+  }
+`;
+
+const SubheadingText = styled.p`
+  font-size: 1rem;
+  color: ${props => props.theme.colors.primary};
+  text-align: center;
+  margin-bottom: 1.5em;
+  line-height: 1.5;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: 0.9rem;
+  }
+`;
+
+const Divider = styled.hr`
+  border: none;
+  height: 1px;
+  background-color: ${props => props.theme.colors.primary};
+  opacity: 0.2;
+  margin: 2em 0;
 `;
 
 export default PortfolioPage;
