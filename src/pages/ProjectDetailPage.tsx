@@ -187,7 +187,7 @@ Key Features:
     title: "Timeblind",
     description: "A mobile timer app designed for users with ADHD, featuring interval-based reminders, color-shifting backgrounds, and automatic session tracking to combat time blindness.",
     fullDescription: `
-      Timeblind is a timer app thoughtfully designed for people with ADHD to help manage time perception for neurodivergent individuals. The idea came from a Reddit post on the ADHD subreddit that suggested setting up constant reminders at a fixed interval to stay aware of the passage of time. I looked for an app with this functionality on the Play Store but couldn't find anything that did exactly what I wanted.
+      Timeblind is a timer app thoughtfully designed for people with ADHD to help manage time perception. The idea came from a Reddit post on the ADHD subreddit that suggested setting up constant reminders at a fixed interval to stay aware of the passage of time. I looked for an app with this functionality on the Play Store but couldn't find anything that did exactly what I wanted.
 
 Users can select custom intervals to receive gentle reminders as time passes. A visual timer then opens up and the background changes color from the bottom up. The color used depends on the time of day (green in the morning, yellow in the afternoon, and red at night). This way, the user is always aware of the time of day and the session's progress.
 
